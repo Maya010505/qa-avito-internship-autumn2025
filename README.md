@@ -1,0 +1,1 @@
+# qa-avito-internship-autumn2025
