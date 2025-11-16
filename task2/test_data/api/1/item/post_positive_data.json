@@ -1,0 +1,28 @@
+{
+  "TC-1_ValidData": {
+    "payload": {
+      "sellerID": 111303,
+      "name": "Объявление",
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 11,
+        "contacts": 12
+      }
+    },
+    "expected_status_code": 200
+  },
+  "TC-2_ZeroValues": {
+    "payload": {
+      "sellerID": 111303,
+      "name": "Объявление с нулевыми значениями",
+      "price": 0,
+      "statistics": {
+        "likes": 0,
+        "viewCount": 0,
+        "contacts": 0
+      }
+    },
+    "expected_status_code": 200
+  }
+}

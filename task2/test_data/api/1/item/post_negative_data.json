@@ -1,0 +1,78 @@
+{
+  "TC-3_MissingRequiredFields": {
+    "payload": {
+      "name": "Отсутствие sellerId и price",
+      "statistics": {
+        "likes": 10,
+        "viewCount": 56,
+        "contacts": 4
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-4_NullInRequiredField": {
+    "payload": {
+      "sellerID": 111303,
+      "name": null,
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 56,
+        "contacts": 4
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-5_IncorrectDataTypes": {
+    "payload": {
+      "sellerID": "111303",
+      "name": "Неверные типы sellerId и price",
+      "price": "100",
+      "statistics": {
+        "likes": 12,
+        "viewCount": 6,
+        "contacts": 5
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-6_NegativeNumericValues": {
+    "payload": {
+      "sellerID": 111303,
+      "name": "Отрицательные значения price и viewCount",
+      "price": -500,
+      "statistics": {
+        "likes": 89,
+        "viewCount": -3,
+        "contacts": 10
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-7_WhitespaceNameField": {
+    "payload": {
+      "sellerID": 111303,
+      "name": "       ",
+      "price": 100,
+      "statistics": {
+        "likes": 20,
+        "viewCount": 45,
+        "contacts": 5
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-8_SpecialCharsInName": {
+    "payload": {
+      "sellerID": 111303,
+      "name": "@&#",
+      "price": 100,
+      "statistics": {
+        "likes": 20,
+        "viewCount": 45,
+        "contacts": 5
+      }
+    },
+    "expected_status_code": 400
+  }
+}

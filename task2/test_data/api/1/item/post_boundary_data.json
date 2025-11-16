@@ -1,0 +1,54 @@
+{
+  "TC-9_LowerBoundarySellerId": {
+    "payload": {
+      "sellerID": 111111,
+      "name": "Нижнее допустимое значение sellerId",
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 11,
+        "contacts": 12
+      }
+    },
+    "expected_status_code": 200
+  },
+  "TC-10_UpperBoundarySellerId": {
+    "payload": {
+      "sellerID": 999999,
+      "name": "Верхнее допустимое значение sellerId",
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 11,
+        "contacts": 12
+      }
+    },
+    "expected_status_code": 200
+  },
+  "TC-11_BelowLowerBoundary": {
+    "payload": {
+      "sellerID": 111110,
+      "name": "Значение sellerId ниже границы",
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 11,
+        "contacts": 12
+      }
+    },
+    "expected_status_code": 400
+  },
+  "TC-12_AboveUpperBoundary": {
+    "payload": {
+      "sellerID": 1000000,
+      "name": "Значение sellerId выше границы",
+      "price": 100,
+      "statistics": {
+        "likes": 10,
+        "viewCount": 11,
+        "contacts": 12
+      }
+    },
+    "expected_status_code": 400
+  }
+}
