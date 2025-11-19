@@ -2,13 +2,13 @@ import pytest
 from utils.data_provider import DataProvider
 
 # Загрузка тестовых данных
-negative_data_provider = DataProvider("api\\1\\statistic\\", "get_statistic_negative_data.json")
-positive_data_provider = DataProvider("api\\1\\statistic\\", "get_statistic_positive_data.json")
+negative_data_provider = DataProvider("api\\v1\\statistic\\", "get_statistic_negative_data.json")
+positive_data_provider = DataProvider("api\\v1\\statistic\\", "get_statistic_positive_data.json")
 
 
 def test_get_statistic_positive(api_client, created_item):
     """
-    TC-1: Позитивный тест. Получение статистики по существующему объявлению.
+    TC-v1: Позитивный тест. Получение статистики по существующему объявлению.
     Использует фикстуру 'created_item' для получения ID.
     """
     response = api_client.get_statistic_by_id_v1(created_item["id"])
@@ -31,7 +31,7 @@ def test_get_statistic_positive(api_client, created_item):
 @pytest.mark.parametrize("test_data", negative_data_provider.get_all_test_cases(), ids=negative_data_provider.get_test_case_ids())
 def test_get_statistic_negative(api_client, test_data):
     """
-    TC-2, TC-3: Негативные тесты для GET /statistic/:id.
+    TC-v2, TC-3: Негативные тесты для GET /statistic/:id.
     """
     response = api_client.get_statistic_by_id_v1(test_data["item_id"])
 

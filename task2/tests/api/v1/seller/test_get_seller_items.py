@@ -2,13 +2,13 @@ import pytest
 from utils.data_provider import DataProvider
 
 # Загрузка тестовых данных
-boundary_data_provider = DataProvider("api\\1\\seller\\", "get_seller_items_boundary_data.json")
-negative_data_provider = DataProvider("api\\1\\seller\\", "get_seller_items_negative_data.json")
-positive_data_provider = DataProvider("api\\1\\seller\\", "get_seller_items_positive_data.json")
+boundary_data_provider = DataProvider("api\\v1\\seller\\", "get_seller_items_boundary_data.json")
+negative_data_provider = DataProvider("api\\v1\\seller\\", "get_seller_items_negative_data.json")
+positive_data_provider = DataProvider("api\\v1\\seller\\", "get_seller_items_positive_data.json")
 
 def test_get_seller_items_positive(api_client, created_item):
     """
-    TC-1: Позитивный тест. Получение списка объявлений для существующего продавца.
+    TC-v1: Позитивный тест. Получение списка объявлений для существующего продавца.
     """
     seller_id = created_item["payload"]["sellerID"]
 
@@ -28,7 +28,7 @@ def test_get_seller_items_positive(api_client, created_item):
 @pytest.mark.parametrize("test_data",negative_data_provider.get_all_test_cases(),ids=negative_data_provider.get_test_case_ids())
 def test_get_seller_items_negative(api_client, test_data):
     """
-    TC-2: Негативные тесты.
+    TC-v2: Негативные тесты.
     """
     response = api_client.get_items_by_seller_id(test_data["sellerID"])
     assert response.status_code == test_data["expected_status_code"]

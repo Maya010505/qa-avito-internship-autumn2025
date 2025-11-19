@@ -2,12 +2,12 @@ import pytest
 from utils.data_provider import DataProvider
 
 # Загрузка тестовых данных
-negative_data_provider = DataProvider("api\\2\\item\\", "delete_item_negative_data.json")
-positive_data_provider = DataProvider("api\\2\\item\\", "delete_item_positive_data.json")
+negative_data_provider = DataProvider("api\\v2\\item\\", "delete_item_negative_data.json")
+positive_data_provider = DataProvider("api\\v2\\item\\", "delete_item_positive_data.json")
 
 def test_delete_item_v2_positive(api_client, created_item):
     """
-    TC-1: Позитивный тест для DELETE /api/2/item/:id
+    TC-v1: Позитивный тест для DELETE /api/v2/item/:id
     """
     delete_response = api_client.delete_item_by_id_v2(created_item["id"])
 
@@ -21,7 +21,7 @@ def test_delete_item_v2_positive(api_client, created_item):
 @pytest.mark.parametrize("test_data", negative_data_provider.get_all_test_cases(), ids=negative_data_provider.get_test_case_ids())
 def test_delete_item_v2_negative(api_client, test_data):
     """
-    TC-2, TC-3: Негативные тесты для DELETE /api/2/item/:id
+    TC-v2, TC-3: Негативные тесты для DELETE /api/v2/item/:id
     """
     response = api_client.delete_item_by_id_v2(test_data["item_id"])
 

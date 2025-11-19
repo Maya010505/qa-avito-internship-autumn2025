@@ -2,9 +2,9 @@ import pytest
 from utils.data_provider import DataProvider
 
 # Загрузка тестовых данных
-boundary_data_provider = DataProvider("api\\1\\item\\","post_boundary_data.json")
-negative_data_provider = DataProvider("api\\1\\item\\", "post_negative_data.json")
-positive_data_provider = DataProvider("api\\1\\item\\","post_positive_data.json")
+boundary_data_provider = DataProvider("api\\v1\\item\\","post_boundary_data.json")
+negative_data_provider = DataProvider("api\\v1\\item\\", "post_negative_data.json")
+positive_data_provider = DataProvider("api\\v1\\item\\","post_positive_data.json")
 
 @pytest.mark.parametrize("test_data", boundary_data_provider.get_all_test_cases(), ids=boundary_data_provider.get_test_case_ids())
 def test_create_item_boundary(api_client, test_data):

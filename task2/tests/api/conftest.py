@@ -8,7 +8,7 @@ def created_item(api_client):
     """
     Создает объявление через POST-запрос для тестов GET, DELETE, PUT.
     """
-    data_provider = DataProvider("api\\1\\item\\","post_positive_data.json")
+    data_provider = DataProvider("api\\v1\\item\\","post_positive_data.json")
     test_case_data = data_provider.get_test_case("TC-1_ValidData")
     payload = test_case_data["payload"]
 
